@@ -1,0 +1,2 @@
+- The facade pattern is used to hide a lot of complexity behind a single method. 
+Its future proof, if new thing added, just change up the instructions

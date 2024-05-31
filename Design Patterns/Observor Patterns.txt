@@ -1,0 +1,2 @@
+- When other parts of code need to be updated, on one change. Like onClick, onHandler
+- 

@@ -1,0 +1,3 @@
+- Common problems that have been solved many times
+- Increase the quality of code, these patterns were designed in accordance with flexibility
+- Easier for other developers to understand the code

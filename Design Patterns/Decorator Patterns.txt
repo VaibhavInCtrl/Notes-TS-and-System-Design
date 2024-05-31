@@ -1,0 +1,7 @@
+- Decorators in JS is similar to annotations in java. 
+- Usage of this Can be explained by taking an example of order creation for macbook, as there are many options, and the price
+changes for each option, it would be very hard to check for each specific item and then update the price, instead using 
+decorators we can just add that to the base class and update the price
+- Abstract classes in TypeScript are base classes that cannot be instantiated directly. 
+They are designed to be subclassed. Abstract classes can contain abstract methods, which are methods 
+declared without implementation and must be implemented in derived classes.

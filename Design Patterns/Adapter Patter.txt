@@ -1,0 +1,6 @@
+- The adapter pattern allows you to make different classes with different interfaces work together, without changing their source code. 
+- Took the example of iphone charger and android charger and making the iphone use microusb and lightining internally, to do this
+create two interface for both iphone and android, and two classes that implement these interfaces and have two functions or multiple
+like uselightining and use microusb respectively, now new adapter class created that implements the android interface and has a functions
+useAdapterMicro and takes argument of iphone and in the function we use the uselightining function, could be more complex but this
+is an easy example to understand this

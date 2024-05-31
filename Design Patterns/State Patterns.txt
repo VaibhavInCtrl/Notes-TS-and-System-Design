@@ -1,0 +1,1 @@
+- The state pattern is used to keep track of the state of a process. We use a amazon order example,Each order moves to a specific process and the user has limited options at each state. For instance: you cannot cancel an order once it has been shipped. But you can cancel it at previous states.
