@@ -1,1 +1,16 @@
-as
+- Take 5 minutes to read teh problem and ask the interviewer about any information and usage of libraries or specifications.
+- Learn editor shortcuts, makes it easy
+- Remember the fetch api call format
+- Try to write functional code, use libraries function, use map, filter and reduce
+- DOM manipulation, be expert in this, directly using query selectors
+- Local Storage, store the states of the website and maintain it
+- Sorting, searching and tagging should be well practiced, like tagging some products with their ids and things like this, can be told to implement yours and also can be asked to implement yours.
+- Dont spend a lot of time on UI, it should WORK, learn css flexbox, make it responsive. Instead of using media queries
+- Think recursively, try it out
+- Write Modular code, they will check what parts the code has been seperated into, functions should be explainable
+- Scalable code, can ten more features accomodate with the same code, and maintainable
+- Readable, by reading it should explain and no comments should be required
+- Dont write inline CSS, use different JS file, use different HTML file
+- Dont waste time on single specific time, know when to stop, you should have a working code, can miss out corner cases
+- Take time to revisit your code, before last 15 minutes code should be working, lesser features can be accomodated, take some time to test it as well
+- Try to implement some features in a unique way. Get some plus points in every way possible.
