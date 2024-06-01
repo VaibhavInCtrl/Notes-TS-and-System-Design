@@ -1,0 +1,28 @@
+INPUT: 
+number of snakes, number of ladders, number of players in lines given by s, l, p
+OUTPUT: 
+Now take a random dice and for each player print 
+<player_name> rolled a <dice_value> and moved from <initial_position> to <final_position>
+END:
+when someone wins print <player_name> wins the game
+
+RULES:
+- Starts from pos 0
+- wins at 100
+- cant move past 100
+- alternating snake ladder can be there, otherwise snake and ladders work normal
+
+
+SOLUTION:
+
+create three classes, 
+- player
+- ladders
+- snakes
+
+Properties of player
+- Current pos, next pos, dices rolled, id, last dice
+Properties of snakes
+- Start pos, end pos, id, players bitten
+Properties of ladder
+- Start pos, end pos, id, players helped
