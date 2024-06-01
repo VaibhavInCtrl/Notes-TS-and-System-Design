@@ -1,0 +1,8 @@
+- Have to make game, 4*4 grid size. so an array, times an array. 
+- on Random position give number (2) and check if no other number there after every move
+- 4 possible moves: 0 left, 1 right, 2 top, 3 bottom. 
+- If 2048 on grid then wins
+- When move, check for other tile or edge on each part. 
+- 3 consecutive tile case: farther tile would be merged in the direction of move
+- 4 tiles, having same number first two and second two would merge
+- Lost when no possible move left, i.e no place to put new number or no more additions possible

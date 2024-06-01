@@ -1,3 +1,5 @@
+TLDR: Improve completeness, testing, edge case handling
+
 Review
 Structure & Organization: The code is well-structured with clear separation of concerns. Each entity (Snake, Ladder, Player) 
 is encapsulated in its class, and utility functions are separated into a utils file.
