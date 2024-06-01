@@ -16,12 +16,14 @@ export class Player {
         this.id = generateUID();
         this.name = n;
     }
+
     rollDice(){
         this.diceRolled = Math.floor(Math.random()*5 + 1);
         this.dicesRolled.push(this.diceRolled);
         this.nextPos = this.currentPos + this.diceRolled;
         return this.diceRolled;
     }
+    
     getPlayerInfo(boardSize: number, snakes: Snake[], ladders: Ladder[]){
         if (this.nextPos === boardSize){
             return `${this.name} wins the game`
