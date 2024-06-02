@@ -1,7 +1,7 @@
-import { Directions } from "../ENUMS/directions";
+import { Directions } from "../ENUMS/directions.js";
 
 export interface MyPlayerInterface {
     getName(): string;
-    getAllMoves(): string;
-    moveWhere(direction: Directions): number[][];
+    getAllMoves(): number[];
+    registerMove(move: number): void;
 }

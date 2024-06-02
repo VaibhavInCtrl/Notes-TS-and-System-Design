@@ -2,15 +2,21 @@ import { MyPlayerInterface } from "../interface/playerInterface.js";
 
 
 export class Player implements MyPlayerInterface{
-
+    private name: string;
+    readonly moves: number[];
+    constructor(n: string){
+        this.name = n;
+        this.moves = []
+    }
     getName(): string {
-        throw new Error("Method not implemented.");
-    }
-    getAllMoves(): string {
-        throw new Error("Method not implemented.");
-    }
-    moveWhere(direction: number): number[][] {
-        throw new Error("Method not implemented.");
+        return this.name;
     }
 
+    registerMove(m: number): void{
+        this.moves.push(m)
+    }
+
+    getAllMoves(): number[] {
+        return this.moves;
+    }
 }

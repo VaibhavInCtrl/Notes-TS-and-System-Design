@@ -1,11 +1,15 @@
 export class Player {
+    constructor(n) {
+        this.name = n;
+        this.moves = [];
+    }
     getName() {
-        throw new Error("Method not implemented.");
+        return this.name;
+    }
+    registerMove(m) {
+        this.moves.push(m);
     }
     getAllMoves() {
-        throw new Error("Method not implemented.");
-    }
-    moveWhere(direction) {
-        throw new Error("Method not implemented.");
+        return this.moves;
     }
 }
