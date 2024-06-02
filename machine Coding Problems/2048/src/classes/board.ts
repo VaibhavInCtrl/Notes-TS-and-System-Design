@@ -1,16 +1,25 @@
 import { MyBoardInterface } from "../interface/boardInterface.js";
 export class Board implements MyBoardInterface{
     private dimension: number;
-
+    private board: number[][];
     constructor(d: number){
         this.dimension = d;
+        this.board = this._createBoard();
     }
 
     getDimenstion(): number {
         return this.dimension;
     };
 
-    createBoard(): number[][] {
+    setBoard(newBoard: number[][]): void{
+        this.board = newBoard;
+    }
+
+    getBoard(): number[][]{
+        return this.board
+    }
+
+    private _createBoard(): number[][] {
         let boardArray: number[][] = [];
         for (let i = 0; i < this.getDimenstion(); i++){
             let singleRow: number[] = [];
@@ -22,8 +31,17 @@ export class Board implements MyBoardInterface{
         return boardArray;
     };
 
+    addAtRandom(){
+        let isAdded = false;
+        const boxNumber = Math.floor(Math.random()*15+1);
+        while (isAdded === false){
+
+        }
+    }
+
     moveLeft(): number[][] {
         console.log("Player Moved Left");
+
         return [[0],[0]];
     };
 

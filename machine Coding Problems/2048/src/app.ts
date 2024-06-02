@@ -3,6 +3,7 @@ import { My2048Interface } from "./interface/twentyfortyeightInterface.js";
 import { Player } from "./classes/player.js";
 import { Directions } from "./ENUMS/directions.js";
 class TwentyfortyEight implements My2048Interface{
+    // private logger: Logger = new Logger(TwentyfortyEight.name);
     private dimension: number;
     private name: string;
     readonly player: Player;
@@ -14,13 +15,16 @@ class TwentyfortyEight implements My2048Interface{
         this.board = newBoard;
         this.player = new Player(n);
     }
+
     getBoard(): number[][] {
-        let createdBoard = this.board.createBoard();
+        let createdBoard = this.board.getBoard();
         return createdBoard;
     }
+
     getPlayer() {
         return this.player.getName();
     }
+
     playMove(move: number): number[][] {
         if (move === Directions.LEFT){
             return this.board.moveLeft();

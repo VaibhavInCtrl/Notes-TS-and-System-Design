@@ -1,6 +1,5 @@
 import { MyPlayerInterface } from "../interface/playerInterface.js";
 
-
 export class Player implements MyPlayerInterface{
     private name: string;
     readonly moves: number[];

@@ -1,12 +1,19 @@
 export class Board {
     constructor(d) {
         this.dimension = d;
+        this.board = this._createBoard();
     }
     getDimenstion() {
         return this.dimension;
     }
     ;
-    createBoard() {
+    setBoard(newBoard) {
+        this.board = newBoard;
+    }
+    getBoard() {
+        return this.board;
+    }
+    _createBoard() {
         let boardArray = [];
         for (let i = 0; i < this.getDimenstion(); i++) {
             let singleRow = [];
@@ -18,6 +25,12 @@ export class Board {
         return boardArray;
     }
     ;
+    addAtRandom() {
+        let isAdded = false;
+        const boxNumber = Math.floor(Math.random() * 15 + 1);
+        while (isAdded === false) {
+        }
+    }
     moveLeft() {
         console.log("Player Moved Left");
         return [[0], [0]];

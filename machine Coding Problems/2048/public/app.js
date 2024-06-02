@@ -10,7 +10,7 @@ class TwentyfortyEight {
         this.player = new Player(n);
     }
     getBoard() {
-        let createdBoard = this.board.createBoard();
+        let createdBoard = this.board.getBoard();
         return createdBoard;
     }
     getPlayer() {
