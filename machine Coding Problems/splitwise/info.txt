@@ -19,7 +19,7 @@ eg: u1: {
 - paid(u1, EXACT, u2, 200) 
 - newExpenseEXACT(u1, [u2,u3,u4], EXACT, [1200, 200, 400]) Who paid, who all were involved, what method was used, how much money was involved for each, accordingly functions called like: u1.paid(u1, u2, 1200). 
 - newExpenseeEQUAL(u1, [u2,u3,u4], EQUAL, 1200) Who paid, who all were involved, what method was used, how much money was involved, accordingly functions called like: u1.paid(u1, u2, 400). 
-- newExpenseeEQUAL(u1, [u2,u3,u4], PERCENT, 1200, [40,20,20,20]) Who paid, who all were involved, what method was used, how much money was involved, accordingly functions called like: u1.paid(u1, u2, 480).
+- newExpenseePERCENT(u1, [u2,u3,u4], PERCENT, 1200, [40,20,20,20]) Who paid, who all were involved, what method was used, how much money was involved, accordingly functions called like: u1.paid(u1, u2, 480).
 
 - a wrapper function/service which uses enums like 
 newExpensee(string)=> calls one of three
