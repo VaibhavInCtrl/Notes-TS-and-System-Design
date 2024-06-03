@@ -1,0 +1,25 @@
+splitwise application would have 4 methods
+- SHOW, SHOW <id>, EXACT, EQUAL, PERCENT
+Format for DISTRIBUTING values:
+EXPENSE <user-id-paid> <no-of-users> <list-of-users> <EQUAL/EXACT/PERCENT> <values-in-case-of-non-equal>
+In SHOW <id> show all expenses user is part of.
+
+HOW TO DO?
+
+- every user has userId, name, email, mobile number.
+- every user has all the items they paid, and someone else paid for.
+- universal object for each user containing every other user, 
+eg: u1: {
+    u2: number, (+/-)
+    u3: number, (+/-)
+    u4: number, (+/-)
+}
+
+- EXPENSES class also needed
+- paid(u1, EXACT, u2, 200) 
+- newExpenseEXACT(u1, [u2,u3,u4], EXACT, [1200, 200, 400]) Who paid, who all were involved, what method was used, how much money was involved for each, accordingly functions called like: u1.paid(u1, u2, 1200). 
+- newExpenseeEQUAL(u1, [u2,u3,u4], EQUAL, 1200) Who paid, who all were involved, what method was used, how much money was involved, accordingly functions called like: u1.paid(u1, u2, 400). 
+- newExpenseeEQUAL(u1, [u2,u3,u4], PERCENT, 1200, [40,20,20,20]) Who paid, who all were involved, what method was used, how much money was involved, accordingly functions called like: u1.paid(u1, u2, 480).
+
+- a wrapper function/service which uses enums like 
+newExpensee(string)=> calls one of three
