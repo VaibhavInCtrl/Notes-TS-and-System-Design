@@ -1,0 +1,13 @@
+PARKING LOT:
+
+- Car types, floors, slots on floors, 
+
+VEHICLE:
+- type(ENUM), registration no(given), color(given), ticketId(floor, slot, parkingLotId), parkVehicle(), unParkVehicle(), getVehicleTicketID().
+
+FLOORS:
+- Total Slots, parkingLotId, slots for each vehicle type(1 for truck, 2 for bike, rest n-3 cars) n is the number of slots per floor.
+
+PARKING LOT:
+- m amount of FLOORS(given), n slots per floor(given), parkingLotId(given) vehicle parked at every floor, 
+- Methods: free_count, free_slots, occupied_slots for each vehicle type, 
