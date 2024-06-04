@@ -22,8 +22,7 @@ export class Expense {
     newExpensePERCENT(payer, borrowers, paymentType, amount, percentShares) {
         let allPayments = "";
         borrowers.map((borrower, index) => {
-            if (borrower.getName() === payer.getName()) {
-            }
+            if (borrower.getName() === payer.getName()) { }
             else {
                 allPayments += this.paid(payer, borrower, Number((amount * percentShares[index] / 100).toFixed(2)));
             }

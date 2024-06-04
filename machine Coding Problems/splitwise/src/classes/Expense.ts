@@ -27,13 +27,10 @@ export class Expense implements ExpenseInterface{
     newExpensePERCENT(payer: User, borrowers: User[], paymentType: PAYMENTTYPE.PERCENT, amount: number, percentShares: number[]): string {
         let allPayments = ""
         borrowers.map((borrower, index) => {
-            if (borrower.getName() === payer.getName()){
-
-            }
+            if (borrower.getName() === payer.getName()){}
             else{
                 allPayments += this.paid(payer, borrower, Number((amount*percentShares[index]/100).toFixed(2)))
             }
-            
         })
         return allPayments
     }
