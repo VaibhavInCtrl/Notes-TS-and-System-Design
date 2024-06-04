@@ -44,7 +44,10 @@ export class User implements UserInterface{
         let newBalance:any = {}
         users.map((user, index) => {
             const userName: string = user.name;
-            newBalance[userName] = 0;
+            if (userName === this.name){}
+            else{
+                newBalance[userName] = 0;
+            }
         })
         this.userBalances = newBalance;
         return newBalance;

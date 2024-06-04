@@ -6,7 +6,8 @@ export class Expense implements ExpenseInterface{
 
     paid(payer: User, borrower: User, amount: number): string {
         payer.updateUserBalance(borrower, amount);
-        return `${payer.getName()} paid ${borrower.getName()} ${amount} \n`
+        borrower.updateUserBalance(payer, -1*amount);
+        return `${borrower.getName()} borrowed ${amount} from ${payer.getName()} \n`
     }
     newExpenseEXACT(payer: User, borrowers: User[], paymentType: PAYMENTTYPE.EXACT, amount: number[]): string {
         let allPayments = ""
@@ -26,7 +27,13 @@ export class Expense implements ExpenseInterface{
     newExpensePERCENT(payer: User, borrowers: User[], paymentType: PAYMENTTYPE.PERCENT, amount: number, percentShares: number[]): string {
         let allPayments = ""
         borrowers.map((borrower, index) => {
-            allPayments += this.paid(payer, borrower, Number((amount*percentShares[index]/100).toFixed(2)))
+            if (borrower.getName() === payer.getName()){
+
+            }
+            else{
+                allPayments += this.paid(payer, borrower, Number((amount*percentShares[index]/100).toFixed(2)))
+            }
+            
         })
         return allPayments
     }

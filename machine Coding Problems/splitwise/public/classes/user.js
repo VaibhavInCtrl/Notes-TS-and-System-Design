@@ -26,7 +26,10 @@ export class User {
         let newBalance = {};
         users.map((user, index) => {
             const userName = user.name;
-            newBalance[userName] = 0;
+            if (userName === this.name) { }
+            else {
+                newBalance[userName] = 0;
+            }
         });
         this.userBalances = newBalance;
         return newBalance;

@@ -6,8 +6,8 @@ type StringKeyedNumberObject = {
 };
 
 export interface SplitwiseInterface {
-    registerUser(name: string, email: string, mobileNumber: number): User;
-    registerExpense(paymentType: PAYMENTTYPE, payer: User, borrowers: User[], amount: number[], percentShares: number[]): void;
-    getUserBalance(userName: string): StringKeyedNumberObject;
-    getAllBalance(): StringKeyedNumberObject;
+    registerUser(newUser: User): void;
+    registerExpense(paymentType: PAYMENTTYPE, payer: User, borrowers: User[], amount: number[], percentShares: number[]): string;
+    getUserBalance(user: User): StringKeyedNumberObject;
+    getAllBalance(): Map<string, StringKeyedNumberObject>;
 }

@@ -1,7 +1,8 @@
 export class Expense {
     paid(payer, borrower, amount) {
         payer.updateUserBalance(borrower, amount);
-        return `${payer.getName()} paid ${borrower.getName()} ${amount} \n`;
+        borrower.updateUserBalance(payer, -1 * amount);
+        return `${borrower.getName()} borrowed ${amount} from ${payer.getName()} \n`;
     }
     newExpenseEXACT(payer, borrowers, paymentType, amount) {
         let allPayments = "";
@@ -21,7 +22,11 @@ export class Expense {
     newExpensePERCENT(payer, borrowers, paymentType, amount, percentShares) {
         let allPayments = "";
         borrowers.map((borrower, index) => {
-            allPayments += this.paid(payer, borrower, Number((amount * percentShares[index] / 100).toFixed(2)));
+            if (borrower.getName() === payer.getName()) {
+            }
+            else {
+                allPayments += this.paid(payer, borrower, Number((amount * percentShares[index] / 100).toFixed(2)));
+            }
         });
         return allPayments;
     }
