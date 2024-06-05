@@ -1,5 +1,6 @@
 import { Floor } from "./classes/Floor.js";
 import { ParkingLotInterface } from "./interfaces/ParkingLotInteface.js";
+import { PARKING_LOT_ID } from "./utils/constants.js";
 import { VEHICLETYPE } from "./utils/enums.js";
 
 class ParkingLot implements ParkingLotInterface{
@@ -8,11 +9,11 @@ class ParkingLot implements ParkingLotInterface{
     private slotsPerFloor: number;
     private parkingLotId: string;
     private AllFloors: Floor[];
-    constructor(t: number, s: number, pid: string){
-        this.totalFloors = t;
-        this.slotsPerFloor = s;
+    constructor(totalFloors: number, slotsPerFloor: number, parkingLotId: string){
+        this.totalFloors = totalFloors;
+        this.slotsPerFloor = slotsPerFloor;
+        this.parkingLotId = parkingLotId;
         this.AllFloors = this.setAllFloors();
-        this.parkingLotId = pid;
     }
     getTotalFloors(): number {
         return this.totalFloors;
@@ -23,7 +24,7 @@ class ParkingLot implements ParkingLotInterface{
     setAllFloors(): Floor[]{
         let allFloors: Floor[] = [];
         for (let i = 0; i < this.totalFloors; i++){
-            let newFloor = new Floor(i, this.slotsPerFloor, this.parkingLotId);
+            let newFloor = new Floor(i+1, this.slotsPerFloor, this.parkingLotId);
             allFloors.push(newFloor);
         }
         return allFloors
@@ -43,14 +44,43 @@ class ParkingLot implements ParkingLotInterface{
         return filledSlotFloorWiseString;
     }
     parkVehicle(vehicleType: VEHICLETYPE, registrationNumber: number, color: string): string {
-        this.AllFloors.forEach((floor) => {
-            if (floor.getEmptySlots(vehicleType).length != 0){
-                let ticketId = floor.parkVehicle(vehicleType, registrationNumber, color);
+        let isFilled: boolean = false;
+        let ticketId = ""
+        this.AllFloors.map((floor) => {
+            if (floor.getEmptySlots(vehicleType).length != 0 && !isFilled){
+                ticketId = floor.parkVehicle(vehicleType, registrationNumber, color);
                 console.log(`${registrationNumber} of type ${VEHICLETYPE[vehicleType]} of color ${color} was parked on floor ${floor.getFloorNumber()}`)
-                return ticketId;
+                isFilled = true
             }
         })
-        return "All Slots on all Floors are filled, create a new parking lot"
+        if (isFilled == false){
+            return "All Floors are filled for this Vehicle Type"
+        }
+        return ticketId
     }
-
+    unParkVehicle(registrationNumber: number, floorNumber: number, slotNumber: number): string {
+        let isUnPark: boolean = false;
+        let reply = ""
+        this.AllFloors.map((floor) => {
+            if (floor.getFloorNumber() == floorNumber){
+                reply = floor.unparkVehicle(slotNumber);
+                isUnPark = true
+            }
+        })
+        if (isUnPark == false){
+            return "All Floors are filled for this Vehicle Type"
+        }
+        return reply
+    }
 }
+
+const parkingLot = new ParkingLot(2, 6, PARKING_LOT_ID);
+
+console.log(parkingLot.getEmptySlotsEachFloor(VEHICLETYPE.BIKE))
+console.log(parkingLot.parkVehicle(VEHICLETYPE.BIKE, 141340, "black"))
+console.log(parkingLot.parkVehicle(VEHICLETYPE.BIKE, 159710, "white"))
+console.log(parkingLot.parkVehicle(VEHICLETYPE.BIKE, 134110, "white"))
+console.log(parkingLot.parkVehicle(VEHICLETYPE.BIKE, 146410, "white"))
+console.log(parkingLot.parkVehicle(VEHICLETYPE.BIKE, 146410, "white"))
+console.log(parkingLot.unParkVehicle(146410, 2, 3))
+console.log(parkingLot.getEmptySlotsEachFloor(VEHICLETYPE.BIKE))

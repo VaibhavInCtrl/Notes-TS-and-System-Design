@@ -3,24 +3,23 @@ import { Slots } from "./Slots.js";
 export class Floor {
     constructor(f, n, p) {
         this.FloorNumber = f;
-        this.AllSlots = this.setAllSlots();
         this.parkingLotId = p;
         this.numberOfSlots = n;
+        this.AllSlots = this.setAllSlots();
     }
     setAllSlots() {
         let AllSlots = [];
         for (let i = 0; i < this.numberOfSlots; i++) {
-            let newSlot;
             if (i === 0) {
-                newSlot = new Slots(this.FloorNumber, VEHICLETYPE.TRUCK, this.parkingLotId, i + 1);
+                let newSlot = new Slots(this.FloorNumber, VEHICLETYPE.TRUCK, this.parkingLotId, i + 1);
                 AllSlots.push(newSlot);
             }
             else if (i === 1 || i === 2) {
-                newSlot = new Slots(this.FloorNumber, VEHICLETYPE.BIKE, this.parkingLotId, i + 1);
+                let newSlot = new Slots(this.FloorNumber, VEHICLETYPE.BIKE, this.parkingLotId, i + 1);
                 AllSlots.push(newSlot);
             }
             else {
-                newSlot = new Slots(this.FloorNumber, VEHICLETYPE.CAR, this.parkingLotId, i + 1);
+                let newSlot = new Slots(this.FloorNumber, VEHICLETYPE.CAR, this.parkingLotId, i + 1);
                 AllSlots.push(newSlot);
             }
         }
@@ -62,13 +61,12 @@ export class Floor {
     parkVehicle(vehicleType, registrationNumber, color) {
         try {
             let ticketId = "";
+            let isFilled = false;
             this.AllSlots.forEach((slot) => {
-                if (slot.getPossibleVehicleType() === vehicleType && slot.getIsParked() === false) {
+                if (slot.getPossibleVehicleType() === vehicleType && slot.getIsParked() === false && !isFilled) {
                     slot.setParkedVehicleTicketId(registrationNumber, color, vehicleType);
                     ticketId = slot.getParkedVehicleTicketId();
-                }
-                else {
-                    ticketId = "There is already a car here or try some other floor";
+                    isFilled = true;
                 }
             });
             return ticketId;
